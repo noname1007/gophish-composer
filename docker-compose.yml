@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  gophish:
+    build:
+      # Note build arguments here are for builds using docker-compose (pytest)
+      # The CI build workflow uses docker and passes the value from bump_version
+      args:
+        - VERSION=0.1.1
+      context: .
+      dockerfile: Dockerfile
+    image: noname1007/gophish
+    init: true
+    restart: always
+    ports:
+      - "3333:3333"
+      - "80:8080"
+    volumes:
+      - ./gophish/gophish.db:/app/database/gophish.db
+      - ./gophish/config.json:/app/config.json
+      - ./gophish/admin.crt:/app/admin.crt
+      - ./gophish/admin.key:/app/admin.key
+      - ./gophish/phish.crt:/app/phish.crt
+      - ./gophish/phish.key:/app/phish.key
