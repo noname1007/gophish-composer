@@ -15,7 +15,7 @@ services:
       - "3333:3333"
       - "80:8080"
     volumes:
-      - ./gophish/gophish.db:/app/database/gophish.db
+      - ./gophish/database/gophish.db:/app/database/gophish.db
       - ./gophish/config.json:/app/config.json
       - ./gophish/admin.crt:/app/admin.crt
       - ./gophish/admin.key:/app/admin.key
