@@ -1,7 +1,6 @@
-FROM ubuntu:trusty
-MAINTAINER Scott Gillespie <github@scottgillespie.name>
+FROM ubuntu:20.04
 
-ENV GOPHISH_VERSION "0.11.0"
+ENV GOPHISH_VERSION "0.12.1"
 
 RUN apt-get update && \
 	apt-get install -y unzip && \
